@@ -1,4 +1,5 @@
 import *  as React from 'react';
+import axios from 'axios'
 import {
     SafeAreaView,
     View,
@@ -11,6 +12,31 @@ import {
 import { PrimaryButton } from '../../Componets'
 
 export default RegisterScreen = ({ navigation }) => {
+    const [name, onChangeName] = React.useState(null);
+    const [email, onChangeEmail] = React.useState(null);
+    const [password, onChangePassword] = React.useState(null);
+    const onRegister=()=>{
+        axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/insertOne',{
+            "dataSource": "Cluster0",
+            "database": "app_taskita",
+            "collection": "member",
+            "document": {
+              "name": name,
+              "email": email,
+              "password":password
+        }
+    },{
+        headers:{
+            'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
+        }
+    }).then(res=>{
+        navigation.navigate('RegisterSuccessScreen')
+    }).catch(err=>{
+        console.log(err)
+        navigation.navigate('RegisterErrorScreen')
+    })
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar
@@ -22,17 +48,23 @@ export default RegisterScreen = ({ navigation }) => {
             <Text style={styles.BodyText}>Please input your valid data.</Text>
 
             <TextInput style={[styles.inputStyle, { marginTop: 80 }]}
-                placeholder="Full Name" />
+                placeholder="Full Name"
+                onChangeText={onChangeName}
+                value={name} />
             <TextInput style={[styles.inputStyle]}
-                placeholder="Email" />
+                placeholder="Email"
+                onChangeText={onChangeEmail}
+                value={email} />
             <TextInput style={[styles.inputStyle]}
                 placeholder="Password"
-                secureTextEntry={true} />
+                secureTextEntry={true}
+                onChangeText={onChangePassword}
+                value={password} />
 
             <PrimaryButton
                 customeStyle={styles.btnRegisterStyle}
                 title="REGISTER"
-                onPress={() => navigation.navigate("RegisterSuccessScreen")} />
+                onPress={() => onRegister()} />
 
             <View style={styles.footherText}>
                 <Text style={styles.smallFootherText}>Already have an account?</Text>
