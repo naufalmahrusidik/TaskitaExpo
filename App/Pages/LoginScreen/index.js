@@ -1,9 +1,53 @@
 import * as React from 'react';
+import axios from 'axios'
 import { View, Image, Text, SafeAreaView, StyleSheet, TextInput, StatusBar, TouchableOpacity } from 'react-native';
 import { gmail, facebook, twitter } from '../../assets'
 import { PrimaryButton } from '../../Componets'
 
 export default LoginScreen = ({ navigation }) => {
+    const [email, onChangeEmail] = React.useState(null);
+    const [password, onChangePassword] = React.useState(null);
+    const [IsLoading, onChangeLoading] = React.useState(false);
+    const [isError, onError] = React.useState(false);
+    const [message, onSetMessage] = React.useState(null);
+
+    const onCheckLogin = () => {
+        onChangeLoading(true)
+        onError(false)
+        axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/findOne', {
+            "dataSource": "Cluster0",
+            "database": "app_taskita",
+            "collection": "member",
+            "filter": { "email": email, "password": password }
+        }, {
+            headers: {
+                'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
+            }
+        }).then(res => {
+            if(res.data.document.email != null){
+                onError(false)
+                navigation.replace('MainScreen')
+            }else{
+                onSetMessage('invalid username and password')
+                onError(true)
+            }
+        }).catch(err => {
+            onError(true)
+            onSetMessage(err.message)
+            console.log(err)
+        }).finally(() => {
+            onChangeLoading(false)
+        })
+    }
+
+    const ErrorMessage=()=>{
+        if(isError){
+            return <Text style={{color:'red', marginTop:10, textAlign:'center'}}>{message}</Text>
+        }else{
+            return null
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar
@@ -16,16 +60,23 @@ export default LoginScreen = ({ navigation }) => {
 
             <TextInput
                 style={styles.inputStyle}
-                placeholder="Email" />
+                placeholder="Email"
+                value={email}
+                onChangeText={onChangeEmail} />
             <TextInput
                 style={styles.inputStyle}
                 placeholder="Password"
-                secureTextEntry={true} />
+                secureTextEntry={true}
+                value={password}
+                onChangeText={onChangePassword} />
 
             <PrimaryButton
+                isLoading={IsLoading}
                 customeStyle={styles.btnLoginStyle}
                 title="LOGIN"
-                onPress={() => navigation.navigate("MainScreen")} />
+                onPress={() => onCheckLogin()} />
+
+            <ErrorMessage/>    
 
             <Text style={styles.BodyText1}>Forgot Password?</Text>
             <Text style={styles.BodyText2}>or login with</Text>

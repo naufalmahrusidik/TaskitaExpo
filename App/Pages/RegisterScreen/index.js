@@ -15,26 +15,30 @@ export default RegisterScreen = ({ navigation }) => {
     const [name, onChangeName] = React.useState(null);
     const [email, onChangeEmail] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);
-    const onRegister=()=>{
-        axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/insertOne',{
+    const [isLoading, onChangeLoading] = React.useState(false);
+    const onRegister = () => {
+        onChangeLoading(true)
+        axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/insertOne', {
             "dataSource": "Cluster0",
             "database": "app_taskita",
             "collection": "member",
             "document": {
-              "name": name,
-              "email": email,
-              "password":password
-        }
-    },{
-        headers:{
-            'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
-        }
-    }).then(res=>{
-        navigation.navigate('RegisterSuccessScreen')
-    }).catch(err=>{
-        console.log(err)
-        navigation.navigate('RegisterErrorScreen')
-    })
+                "name": name,
+                "email": email,
+                "password": password
+            }
+        }, {
+            headers: {
+                'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
+            }
+        }).then(res => {
+            navigation.navigate('RegisterSuccessScreen')
+        }).catch(err => {
+            console.log(err)
+            navigation.navigate('RegisterErrorScreen')
+        }).finally(() => {
+            onChangeLoading(false)
+        })
     }
 
     return (
@@ -64,6 +68,7 @@ export default RegisterScreen = ({ navigation }) => {
             <PrimaryButton
                 customeStyle={styles.btnRegisterStyle}
                 title="REGISTER"
+                isLoading={isLoading}
                 onPress={() => onRegister()} />
 
             <View style={styles.footherText}>
