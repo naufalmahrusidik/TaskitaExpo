@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { BottomNavigator } from './Componets';
 import {
   HomeScreen,
   SplashScreen,
@@ -12,56 +13,18 @@ import {
   ReportScreen,
   SettingsScreen
 } from './Pages';
-import Icon from 'react-native-vector-icons/Ionicons'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const MainScreen = () => {
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="ios-home" color={color} size={size} />
-          ),
-        }} />
-      <Tab.Screen
-        name="Task"
-        component={TaskScreen}
-        options={{
-          tabBarLabel: 'Task',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="airplane" color={color} size={size} />
-          ),
-          tabBarBadge: 3,
-        }} />
-      <Tab.Screen
-        name="Report"
-        component={ReportScreen}
-        options={{
-          tabBarLabel: 'Report',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="alert" color={color} size={size} />
-          ),
-        }} />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{
-          tabBarLabel: 'Settings',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="ios-settings" color={color} size={size} />
-          ),
-        }} />
-    </Tab.Navigator>
+    <Tab.Navigator tabBar={props => <BottomNavigator {...props} />}>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Task" component={TaskScreen} />
+          <Tab.Screen name="Report" component={ReportScreen} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
   )
 }
 
