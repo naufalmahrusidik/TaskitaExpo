@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 const MainScreen = () => {
   return (
     <Tab.Navigator tabBar={props => <BottomNavigator {...props} />}>
-          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
           <Tab.Screen name="Task" component={TaskScreen} />
           <Tab.Screen name="Report" component={ReportScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
@@ -30,7 +30,7 @@ const MainScreen = () => {
 
 export default Router = () => {
   return (
-    <Stack.Navigator initialRouteName="SplashScreen">
+    <Stack.Navigator initialRouteName="MainScreen">
       <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }} />
       <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
       <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />

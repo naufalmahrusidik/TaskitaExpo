@@ -17,6 +17,7 @@ import IcTaskActive from './img/ic_task_active.png';
 import IcTaskInActive from './img/ic_task_nonactive.png';
 import IcSettingsActive from './img/ic_settings_active.png';
 import IcSettingsInActive from './img/ic_settings_nonactive.png';
+import IcLonceng from './img/lonceng.png';
 
 import IcLoading from './img/loading.gif';
 
@@ -37,4 +38,6 @@ export {
     IcTaskInActive,
     IcSettingsActive,
     IcSettingsInActive,
-    IcLoading};
+    IcLoading,
+    IcLonceng,
+    };
