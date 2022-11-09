@@ -12,12 +12,14 @@ export default HomeScreen = () => {
 
       <View style={{ flexDirection: 'row', paddingHorizontal: 20, paddingTop: 10 }}>
         <View>
-          <Text style={styles.textHeader}>Samanta Anna</Text>
-          <Text style={styles.textHeader1}>Welcom Back</Text>
+          <Text style={styles.textHeader}>Kesit Wijanarko</Text>
+          <Text style={styles.textHeader1}>Welcome Back!</Text>
         </View>
-        <TouchableOpacity style={styles.buttonLonceng}>
+        <View style={styles.buttonLonceng}>
+        <TouchableOpacity >
           <Image source={IcLonceng} style={styles.imgLonceng} />
         </TouchableOpacity>
+        </View>
       </View>
 
       <Text style={styles.bulan}>September</Text>
@@ -47,22 +49,30 @@ export default HomeScreen = () => {
 const styles = StyleSheet.create({
   textHeader: {
     color: '#c972ba',
-    fontSize: 25,
+    fontSize: 20,
   },
   textHeader1: {
     color: '#ffffff',
     fontSize: 25,
     marginTop: -5,
   },
+  buttonLonceng:{
+    height: 30,
+    width: 30,
+    marginTop: 20,
+    marginLeft: 110,
+    marginRight: 0,
+    borderRadius: 7,
+    backgroundColor: "white"
+  },
   imgLonceng: {
-    resizeMode: "contain",
-    marginTop: 11,
-    height: 25,
-    paddingHorizontal: 10,
-    paddingVertical: 23,
-    borderRadius: 20,
+    marginTop: 0,
+    height: 5,
+    width: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    borderRadius: 10,
     flex: 1,
-    backgroundColor: '#ffffff'
   },
   bulan: {
     color: '#ffffff',
