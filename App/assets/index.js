@@ -18,8 +18,11 @@ import IcTaskInActive from './img/ic_task_nonactive.png';
 import IcSettingsActive from './img/ic_settings_active.png';
 import IcSettingsInActive from './img/ic_settings_nonactive.png';
 import IcLonceng from './img/lonceng.png';
+import IcCheckBox from './img/checkbox.png';
 
 import IcLoading from './img/loading.gif';
+
+
 
 export {
     IconSplash, 
@@ -40,4 +43,5 @@ export {
     IcSettingsInActive,
     IcLoading,
     IcLonceng,
+    IcCheckBox,
     };

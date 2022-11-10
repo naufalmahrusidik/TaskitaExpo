@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import { View, Text, StatusBar, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { IcLonceng } from '../../assets';
+import { IcLonceng, IcCheckBox } from '../../assets';
 
 export default HomeScreen = () => {
   return (
@@ -16,9 +16,9 @@ export default HomeScreen = () => {
           <Text style={styles.textHeader1}>Welcome Back!</Text>
         </View>
         <View style={styles.buttonLonceng}>
-        <TouchableOpacity >
-          <Image source={IcLonceng} style={styles.imgLonceng} />
-        </TouchableOpacity>
+          <TouchableOpacity >
+            <Image source={IcLonceng} style={styles.imgLonceng} />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -39,8 +39,24 @@ export default HomeScreen = () => {
         </View>
       </View>
 
-      <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff', borderTopLeftRadius: 50, borderTopRightRadius: 50, marginTop: 35 }}>
-        <Text style={styles.today}>Today's Task</Text>
+      <View style={styles.body}>
+          <Text style={styles.today}>Today's Task</Text>
+        <View>
+
+          <View style={styles.body1}>
+            <View styles={styles.jadwal}>
+              <Text style={styles.jam}>10:00</Text>
+              <Image style={styles.checkbox} source={IcCheckBox}/>
+            </View>
+            <View style={styles.Container}>
+              <Text style={styles.M}>M</Text>
+            </View>
+          </View>
+
+          <View></View>
+
+          <View></View>
+        </View>
       </View>
     </View>
   );
@@ -56,7 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginTop: -5,
   },
-  buttonLonceng:{
+  buttonLonceng: {
     height: 30,
     width: 30,
     marginTop: 20,
@@ -117,9 +133,52 @@ const styles = StyleSheet.create({
     color: '#a7a5b7',
     marginTop: -5,
   },
+  body: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    marginTop: 35,
+    alignItems: 'center',
+    alignContent: 'center',
+  },
   today: {
     fontSize: 30,
     fontWeight: 'bold',
     paddingTop: 20,
+  },
+  body1: {
+    flexDirection: 'row',
+  },
+  jadwal: {
+    marginTop: 20,
+    marginRight: 100,
+  },
+  jam: {
+    marginTop: 19,
+  },
+  checkbox: {
+    height: 20,
+    width: 20,
+    marginLeft: 7,
+    marginTop: 2,
+  },
+  Container: {
+    backgroundColor: '#fcf6ff',
+    width: 260,
+    borderRadius: 10,
+    height: 80,
+    marginLeft: 10,
+  },
+  M: {
+    backgroundColor: '#F15412',
+    width: 52,
+    fontSize: 40,
+    color: '#ffffff',
+    marginTop: 12,
+    marginLeft: 16,
+    borderRadius: 10,
+    paddingLeft: 8,
+    paddingBottom: 2,
   },
 });  
