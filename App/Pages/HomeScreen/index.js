@@ -50,6 +50,7 @@ export default HomeScreen = () => {
             </View>
             <View style={styles.Container}>
               <Text style={styles.M}>M</Text>
+              <Text style={styles.meeting}>Meeting With Ceo</Text>
             </View>
           </View>
 
@@ -165,6 +166,7 @@ const styles = StyleSheet.create({
   },
   Container: {
     backgroundColor: '#fcf6ff',
+    flexDirection: 'row',
     width: 260,
     borderRadius: 10,
     height: 80,
@@ -179,6 +181,12 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     borderRadius: 10,
     paddingLeft: 8,
+    height: 52,
     paddingBottom: 2,
+  },
+  meeting: {
+    marginTop: 18,
+    fontSize: 20,
+    marginLeft: 15,
   },
 });  
