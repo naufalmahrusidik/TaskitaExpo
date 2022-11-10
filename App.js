@@ -2,6 +2,8 @@ import React from 'react';
 import Router from './App/Routes';
 import {NavigationContainer} from '@react-navigation/native';
 import { onLoadFont } from './App/assets/fonts';
+import store from './App/Store'
+import { Provider } from 'react-redux'
 
 export default App = () => {
   const loaded = onLoadFont()
@@ -11,8 +13,10 @@ export default App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <Router />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
+    </Provider>
   );
 };
