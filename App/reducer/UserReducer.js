@@ -17,5 +17,16 @@ export const userSlice = createSlice({
         setEmail: (state, action) => {
             state.email = action.payload
         },
+        resetState:(state)=>{
+            const INITIAL_DATA={
+                id:'',
+                nama:'',
+                email:''
+            }
+            state = {...state,...INITIAL_DATA}
+        }
     }
 })
+
+export const {setId, setNama, setEmail, resetState } = userSlice.actions
+export default userSlice.reducer

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import axios from 'axios'
+import { LinearGradient } from 'expo-linear-gradient';
 import { View, Image, Text, SafeAreaView, StyleSheet, TextInput, StatusBar, TouchableOpacity } from 'react-native';
 import { gmail, facebook, twitter } from '../../assets'
 import { PrimaryButton } from '../../Componets'
+import { setId, setEmail, setNama } from '../../reducer/UserReducer'
+import { useDispatch } from 'react-redux'
 
 export default LoginScreen = ({ navigation }) => {
     const [email, onChangeEmail] = React.useState(null);
@@ -10,6 +13,7 @@ export default LoginScreen = ({ navigation }) => {
     const [IsLoading, onChangeLoading] = React.useState(false);
     const [isError, onError] = React.useState(false);
     const [message, onSetMessage] = React.useState(null);
+    const dispatch = useDispatch()
 
     const onCheckLogin = () => {
         onChangeLoading(true)
@@ -24,8 +28,12 @@ export default LoginScreen = ({ navigation }) => {
                 'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
             }
         }).then(res => {
-            if(res.data.document.email != null){
+            if(res.data.document != null){
                 onError(false)
+                dispatch(setId(res.data.document._id))
+                dispatch(setNama(res.data.document.name))
+                dispatch(setEmail(res.data.document.email))
+
                 navigation.replace('MainScreen')
             }else{
                 onSetMessage('invalid username and password')

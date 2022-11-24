@@ -1,4 +1,5 @@
 import *  as React from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 import axios from 'axios'
 import {
     SafeAreaView,

@@ -17,4 +17,5 @@ export {
     RegisterErrorScreen,
     TaskScreen,
     ReportScreen,
-    SettingsScreen};
+    SettingsScreen
+};
