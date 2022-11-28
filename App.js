@@ -2,7 +2,6 @@ import React from 'react';
 import Router from './App/Routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { onLoadFont } from './App/assets/fonts';
-import store from './App/Store'
 import { Provider } from 'react-redux'
 import rootReducer from './App/Store'
 import { createStore } from 'redux'

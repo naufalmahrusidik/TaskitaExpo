@@ -54,9 +54,39 @@ export default HomeScreen = () => {
             </View>
           </View>
 
-          <View></View>
+          <View style={styles.body2}>
+            <View styles={styles.jadwal}>
+              <Text style={styles.jam}>10:00</Text>
+              <Image style={styles.checkbox} source={IcCheckBox}/>
+            </View>
+            <View style={styles.Container}>
+              <Text style={styles.M}>M</Text>
+              <Text style={styles.meeting}>Meeting With Ceo</Text>
+            </View>
+          </View>
 
-          <View></View>
+          <View style={styles.body3}>
+            <View styles={styles.jadwal}>
+              <Text style={styles.jam}>10:00</Text>
+              <Image style={styles.checkbox} source={IcCheckBox}/>
+            </View>
+            <View style={styles.Container}>
+              <Text style={styles.M}>M</Text>
+              <Text style={styles.meeting}>Meeting With Ceo</Text>
+            </View>
+          </View>
+
+          <View style={styles.body4}>
+            <View styles={styles.jadwal}>
+              <Text style={styles.jam}>10:00</Text>
+              <Image style={styles.checkbox} source={IcCheckBox}/>
+            </View>
+            <View style={styles.Container}>
+              <Text style={styles.M}>M</Text>
+              <Text style={styles.meeting}>Meeting With Ceo</Text>
+            </View>
+          </View>
+
         </View>
       </View>
     </View>
@@ -150,6 +180,19 @@ const styles = StyleSheet.create({
   },
   body1: {
     flexDirection: 'row',
+    marginTop: 30,
+  },
+  body2: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  body3: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  body4: {
+    flexDirection: 'row',
+    marginTop: 20,
   },
   jadwal: {
     marginTop: 20,

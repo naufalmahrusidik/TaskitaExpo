@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Image, Button} from 'react-native';
+import {View, Text, Image, Button, StyleSheet} from 'react-native';
 import {
   IconLock,
   IconMail
