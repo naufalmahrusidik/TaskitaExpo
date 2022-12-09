@@ -51,6 +51,7 @@ export default HomeScreen = () => {
             <View style={styles.Container}>
               <Text style={styles.M}>M</Text>
               <Text style={styles.meeting}>Meeting With Ceo</Text>
+              <Text style={styles.line}>────────────────</Text>
             </View>
           </View>
 
@@ -62,6 +63,7 @@ export default HomeScreen = () => {
             <View style={styles.Container}>
               <Text style={styles.M}>M</Text>
               <Text style={styles.meeting}>Meeting With Ceo</Text>
+              <Text style={styles.line}>────────────────</Text>
             </View>
           </View>
 
@@ -73,6 +75,7 @@ export default HomeScreen = () => {
             <View style={styles.Container}>
               <Text style={styles.M}>M</Text>
               <Text style={styles.meeting}>Meeting With Ceo</Text>
+              <Text style={styles.line}>────────────────</Text>
             </View>
           </View>
 
@@ -84,6 +87,7 @@ export default HomeScreen = () => {
             <View style={styles.Container}>
               <Text style={styles.M}>M</Text>
               <Text style={styles.meeting}>Meeting With Ceo</Text>
+              <Text style={styles.line}>────────────────</Text>
             </View>
           </View>
 
@@ -158,11 +162,13 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: 15,
     color: '#a7a5b7',
+    fontFamily: 'Roboto-Reguler',
   },
   text2: {
     fontSize: 40,
     color: '#a7a5b7',
     marginTop: -5,
+    fontFamily: 'Roboto-Reguler',
   },
   body: {
     flex: 1,
@@ -231,5 +237,9 @@ const styles = StyleSheet.create({
     marginTop: 18,
     fontSize: 20,
     marginLeft: 15,
+  },
+  line: {
+    marginTop: 50,
+    marginLeft: -160,
   },
 });  
