@@ -21,7 +21,7 @@ const MainScreen = () => {
   return (
     <Tab.Navigator tabBar={props => <BottomNavigator {...props} />}>
           <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-          <Tab.Screen name="Task" component={TaskScreen} />
+          <Tab.Screen name="Task" component={TaskScreen} options={{ headerShown: false }} />
           <Tab.Screen name="Report" component={ReportScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>

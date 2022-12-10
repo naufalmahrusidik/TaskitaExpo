@@ -43,46 +43,53 @@ export default RegisterScreen = ({ navigation }) => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <StatusBar
-                barStyle="light-content"
-                animated={true}
-                backgroundColor="#131B63" />
+        <SafeAreaView style={{flex:1}}>
+            <LinearGradient
+                colors={['#131B63', '#481162']}
+                style={styles.container}>
 
-            <Text style={styles.headerText}>Register</Text>
-            <Text style={styles.BodyText}>Please input your valid data.</Text>
+                <StatusBar
+                    barStyle="light-content"
+                    animated={true}
+                    backgroundColor="#131B63" />
 
-            <TextInput style={[styles.inputStyle, { marginTop: 80 }]}
-                placeholder="Full Name"
-                onChangeText={onChangeName}
-                value={name} />
-            <TextInput style={[styles.inputStyle]}
-                placeholder="Email"
-                onChangeText={onChangeEmail}
-                value={email} />
-            <TextInput style={[styles.inputStyle]}
-                placeholder="Password"
-                secureTextEntry={true}
-                onChangeText={onChangePassword}
-                value={password} />
+                <Text style={styles.headerText}>Register</Text>
+                <Text style={styles.BodyText}>Please input your valid data.</Text>
 
-            <PrimaryButton
-                customeStyle={styles.btnRegisterStyle}
-                title="REGISTER"
-                isLoading={isLoading}
-                onPress={() => onRegister()} />
+                <TextInput style={[styles.inputStyle, { marginTop: 80 }]}
+                    placeholder="Full Name"
+                    onChangeText={onChangeName}
+                    value={name} />
 
-            <View style={styles.footherText}>
-                <Text style={styles.smallFootherText}>Already have an account?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-                    <Text style={styles.smallFootherTextRight}>Login here!</Text>
-                </TouchableOpacity>
-            </View>
+                <TextInput style={[styles.inputStyle]}
+                    placeholder="Email"
+                    onChangeText={onChangeEmail}
+                    value={email} />
 
-            <View style={styles.footherText2}>
-                <Text style={styles.smallFootherText}>By signing up, you are agree with our </Text>
-                <Text style={styles.smallFootherTextRight}>Terms & Conditions</Text>
-            </View>
+                <TextInput style={[styles.inputStyle]}
+                    placeholder="Password"
+                    secureTextEntry={true}
+                    onChangeText={onChangePassword}
+                    value={password} />
+
+                <PrimaryButton
+                    customeStyle={styles.btnRegisterStyle}
+                    title="REGISTER"
+                    isLoading={isLoading}
+                    onPress={() => onRegister()} />
+
+                <View style={styles.footherText}>
+                    <Text style={styles.smallFootherText}>Already have an account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+                        <Text style={styles.smallFootherTextRight}>Login here!</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.footherText2}>
+                    <Text style={styles.smallFootherText}>By signing up, you are agree with our </Text>
+                    <Text style={styles.smallFootherTextRight}>Terms & Conditions</Text>
+                </View>
+            </LinearGradient>    
         </SafeAreaView>
     );
 }
@@ -119,21 +126,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#695D91'
     },
     btnRegisterStyle: {
-        marginTop: 40
+        marginTop: 50
     },
     footherText: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 35
+        marginTop: 100
     },
     smallFootherText: {
         fontFamily: 'Roboto-Light',
-        fontSize: 10,
+        fontSize: 12,
         color: 'white',
     },
     smallFootherTextRight: {
         fontFamily: 'Roboto-Light',
-        fontSize: 10,
+        fontSize: 12,
         color: 'white',
         marginLeft: 5,
         textDecorationLine: 'underline'
@@ -141,6 +148,6 @@ const styles = StyleSheet.create({
     footherText2: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 3
+        marginTop: 20
     }
 })

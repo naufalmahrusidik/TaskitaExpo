@@ -20,6 +20,8 @@ import IcSettingsInActive from './img/ic_settings_nonactive.png';
 import IcLonceng from './img/lonceng.png';
 import IcCheckBox from './img/checkbox.png';
 
+import IcPensil from './img/pensil.png';
+
 import IcLoading from './img/loading.gif';
 
 
@@ -44,4 +46,5 @@ export {
     IcLoading,
     IcLonceng,
     IcCheckBox,
+    IcPensil
     };

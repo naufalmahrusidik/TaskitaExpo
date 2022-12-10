@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Image, Button, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import {
   IconLock,
   IconMail
@@ -19,6 +19,7 @@ const CardView = (props)=>{
       <View style={{flex:1, alignContent:"center"}}>
           <Image source={IconMail} style={{width: 30, height: 30}}/>
       </View>
+      
       <View style={{flex:5}}>
         <Text style={{fontSize:16, fontWeight:"bold"}}>Account Name</Text>
         <Text>{props.value}</Text>

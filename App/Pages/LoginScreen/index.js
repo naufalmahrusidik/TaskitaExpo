@@ -57,56 +57,60 @@ export default LoginScreen = ({ navigation }) => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <StatusBar
-                barStyle="light-content"
-                animated={true}
-                backgroundColor="#131B63" />
+        <SafeAreaView style={{ flex:1 }}>
+            <LinearGradient
+                colors={['#131B63', '#481162']}
+                style={styles.container}>
 
-            <Text style={styles.HeaderText}>Login</Text>
-            <Text style={styles.BodyText}>Please login to your account</Text>
+                <StatusBar
+                    barStyle="light-content"
+                    animated={true}
+                    backgroundColor="#131B63" />
 
-            <TextInput
-                style={styles.inputStyle}
-                placeholder="Email"
-                value={email}
-                onChangeText={onChangeEmail} />
-            <TextInput
-                style={styles.inputStyle}
-                placeholder="Password"
-                secureTextEntry={true}
-                value={password}
-                onChangeText={onChangePassword} />
+                <Text style={styles.HeaderText}>Login</Text>
+                <Text style={styles.BodyText}>Please login to your account</Text>
 
-            <PrimaryButton
-                isLoading={IsLoading}
-                customeStyle={styles.btnLoginStyle}
-                title="LOGIN"
-                onPress={() => onCheckLogin()} />
+                <TextInput
+                    style={[styles.inputStyle, {marginTop:80}]} 
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={onChangeEmail} />
+                <TextInput
+                    style={styles.inputStyle}
+                    placeholder="Password"
+                    secureTextEntry={true}
+                    value={password}
+                    onChangeText={onChangePassword} />
 
-            <ErrorMessage/>    
+                <PrimaryButton
+                    isLoading={IsLoading}
+                    customeStyle={styles.btnLoginStyle}
+                    title="LOGIN"
+                    onPress={() => onCheckLogin()} />
 
-            <Text style={styles.BodyText1}>Forgot Password?</Text>
-            <Text style={styles.BodyText2}>or login with</Text>
+                <ErrorMessage/>    
 
-            <View style={styles.containericon}>
-                <Image style={styles.gmailicon} source={gmail} />
-                <Image style={styles.gmailicon} source={facebook} />
-                <Image style={styles.gmailicon} source={twitter} />
-            </View>
+                <Text style={styles.BodyText1}>Forgot Password ?</Text>
+                <Text style={styles.BodyText2}>or login with</Text>
 
-            <View style={styles.footherText}>
-                <Text style={styles.BodyText3}>Don't have an account?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-                    <Text style={styles.BodyText3b}> Create new now</Text>
-                </TouchableOpacity>
-            </View>
+                <View style={styles.containericon}>
+                    <Image style={styles.sosmedicon} source={gmail} />
+                    <Image style={styles.sosmedicon} source={facebook} />
+                    <Image style={styles.sosmedicon} source={twitter} />
+                </View>
 
-            <View style={styles.footherText2}>
-                <Text style={styles.BodyText4}>By signing up, you are agree with out</Text>
-                <Text style={styles.BodyText4b}> Terms & Conditions</Text>
-            </View>
+                <View style={styles.footherText}>
+                    <Text style={styles.BodyText3}>Don't have an account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+                        <Text style={styles.BodyText3b}> Create new now</Text>
+                    </TouchableOpacity>
+                </View>
 
+                <View style={styles.footherText2}>
+                    <Text style={styles.BodyText4}>By signing up, you are agree with out</Text>
+                    <Text style={styles.BodyText4b}> Terms & Conditions</Text>
+                </View>
+            </LinearGradient>
         </SafeAreaView >
     );
 }
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
     },
     inputStyle: {
         height: 50,
-        marginTop: 20,
+        marginTop: 12,
         borderWidth: 1,
         paddingLeft: 30,
         borderRadius: 50,
@@ -146,66 +150,58 @@ const styles = StyleSheet.create({
         marginTop: 40,
     },
     BodyText1: {
-        marginTop: 10,
-        fontSize: 13,
+        marginTop: 12,
+        fontSize: 14,
         textAlign: 'right',
         fontFamily: 'Roboto-Light',
         color: 'white'
     },
     BodyText2: {
-        marginTop: 30,
-        fontSize: 10,
+        marginTop: 50,
+        fontSize: 14,
         textAlign: 'center',
         fontFamily: 'Roboto-Light',
         color: 'white'
     },
     containericon: {
-        marginTop: 15,
-        flexDirection: "row",
-        justifyContent: 'center',
-        marginRight: -15
+        justifyContent:'center',
+        flexDirection:'row'
     },
-    gmailicon: {
-        marginRight: 15
+    sosmedicon: {
+        margin:10
     },
     footherText: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 20
+        marginTop: 50
     },
     BodyText3: {
-        marginTop: 30,
-        fontSize: 10,
-        textAlign: 'center',
-        fontFamily: 'Roboto-Light',
-        color: 'white'
+        fontFamily:'Roboto-Light',
+        fontSize:12,
+        color:'white',
     },
     BodyText3b: {
-        marginTop: 30,
-        fontSize: 10,
-        textDecorationLine: "underline",
-        textAlign: 'center',
-        fontFamily: 'Roboto-Light',
-        color: 'white'
+        fontFamily:'Roboto-Light',
+        fontSize:12,
+        color:'white',
+        marginLeft:5,
+        textDecorationLine:'underline'
     },
     footherText2: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 1
+        marginTop: 20
     },
     BodyText4: {
-        marginTop: 5,
-        fontSize: 10,
-        textAlign: 'center',
-        fontFamily: 'Roboto-Light',
-        color: 'white'
+        fontFamily:'Roboto-Light',
+        fontSize:12,
+        color:'white',
     },
     BodyText4b: {
-        marginTop: 5,
-        fontSize: 10,
-        textDecorationLine: "underline",
-        textAlign: 'center',
-        fontFamily: 'Roboto-Light',
-        color: 'white'
+        fontFamily:'Roboto-Light',
+        fontSize:12,
+        color:'white',
+        marginLeft:5,
+        textDecorationLine:'underline'
     },
 });
