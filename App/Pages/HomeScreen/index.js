@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StatusBar, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Text, View, StatusBar, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { IcLonceng, IcCheckBox } from '../../assets';
 
 export default HomeScreen = () => {
@@ -41,57 +41,6 @@ export default HomeScreen = () => {
 
       <View style={styles.body}>
           <Text style={styles.today}>Today's Task</Text>
-        <View>
-
-          <View style={styles.body1}>
-            <View styles={styles.jadwal}>
-              <Text style={styles.jam}>10:00</Text>
-              <Image style={styles.checkbox} source={IcCheckBox}/>
-            </View>
-            <View style={styles.Container}>
-              <Text style={styles.M}>M</Text>
-              <Text style={styles.meeting}>Meeting With Ceo</Text>
-              <Text style={styles.line}>────────────────</Text>
-            </View>
-          </View>
-
-          <View style={styles.body2}>
-            <View styles={styles.jadwal}>
-              <Text style={styles.jam}>10:00</Text>
-              <Image style={styles.checkbox} source={IcCheckBox}/>
-            </View>
-            <View style={styles.Container}>
-              <Text style={styles.M}>M</Text>
-              <Text style={styles.meeting}>Meeting With Ceo</Text>
-              <Text style={styles.line}>────────────────</Text>
-            </View>
-          </View>
-
-          <View style={styles.body3}>
-            <View styles={styles.jadwal}>
-              <Text style={styles.jam}>10:00</Text>
-              <Image style={styles.checkbox} source={IcCheckBox}/>
-            </View>
-            <View style={styles.Container}>
-              <Text style={styles.M}>M</Text>
-              <Text style={styles.meeting}>Meeting With Ceo</Text>
-              <Text style={styles.line}>────────────────</Text>
-            </View>
-          </View>
-
-          <View style={styles.body4}>
-            <View styles={styles.jadwal}>
-              <Text style={styles.jam}>10:00</Text>
-              <Image style={styles.checkbox} source={IcCheckBox}/>
-            </View>
-            <View style={styles.Container}>
-              <Text style={styles.M}>M</Text>
-              <Text style={styles.meeting}>Meeting With Ceo</Text>
-              <Text style={styles.line}>────────────────</Text>
-            </View>
-          </View>
-
-        </View>
       </View>
     </View>
   );
