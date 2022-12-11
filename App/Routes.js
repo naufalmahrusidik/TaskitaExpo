@@ -11,7 +11,8 @@ import {
   RegisterErrorScreen,
   TaskScreen,
   ReportScreen,
-  SettingsScreen
+  SettingsScreen,
+  AddNewTask,
 } from './Pages';
 
 const Tab = createBottomTabNavigator();
@@ -37,6 +38,7 @@ export default Router = () => {
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} options={{ headerShown: false }} />
       <Stack.Screen name="RegisterSuccessScreen" component={RegisterSuccessScreen} options={{ headerShown: false }} />
       <Stack.Screen name="RegisterErrorScreen" component={RegisterErrorScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="AddNewTask" component={AddNewTask} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };

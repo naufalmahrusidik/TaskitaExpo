@@ -40,10 +40,10 @@ PW    : kesit123
         </View>
       </View>
 
-      <View style={styles.body}>
+
+        <View style={styles.body}>
           <Text style={styles.today}>Today's Task</Text>
-      </View>
-    </View>
+        </View>
 
           <View style={styles.body1}>
             <View styles={styles.jadwal}>

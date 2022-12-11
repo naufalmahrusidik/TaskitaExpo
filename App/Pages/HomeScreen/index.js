@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StatusBar, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
+import { Text, View, StatusBar, styles,  StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
 import { IcLonceng, IcCheckBox } from '../../assets';
 import { MiniCard } from '../../Componets'
 import { useSelector, useDispatch } from 'react-redux'
@@ -69,7 +69,9 @@ export default HomeScreen = () => {
       </View>
       <View style={style.bodyContent}>
         <ScrollView style={{ padding: 30 }}>
-          <Text>asdf</Text>
+
+          
+
         </ScrollView>
       </View>
 
@@ -107,5 +109,5 @@ const style = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 10,
-  }
+  },
 });  

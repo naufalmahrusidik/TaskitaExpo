@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Text, View, StatusBar, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
+import { Text, Alert, View, StatusBar, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView, FlatList } from 'react-native';
 import { IcLonceng, IcPensil } from '../../assets';
 import { MiniCard } from '../../Componets'
 import { useSelector } from 'react-redux'
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
-export default HomeScreen = () => {
+export default HomeScreen = ({ navigation }) => {
   const nama = useSelector((state) => state.user.nama)
 
   return (
@@ -19,23 +19,30 @@ export default HomeScreen = () => {
         <View>
           <Text style={style.textNameStyle}>{nama}</Text>
         </View>
-        <View>
-          <Image
-            source={IcLonceng} style={style.loceng} />
-        </View>
+        <TouchableOpacity
+          onPress={() =>
+            Alert.alert("Tidak ada Notifikasi", [
+              {
+                text: "ok",
+                onPress: () => console.log("ok ditekan"),
+              },
+            ])
+          }>
+          <Image source={IcLonceng} style={style.loceng} />
+        </TouchableOpacity>
       </View>
 
       <View style={style.bodyContent1}>
         <View style={{ flexDirection: 'row' }}>
-          <View>
-            <Image
-              source={IcPensil} style={style.pensil} />
-            <Text style={style.Add}>Add New</Text>
-          </View>
 
-          <View>
+          <TouchableOpacity>
+            <Image source={IcPensil} style={style.pensil} />
+            <Text style={style.Add}>Add New</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
             <Text style={style.Filter}>Filter Task</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <View style={style.bodyContent}>
@@ -43,7 +50,7 @@ export default HomeScreen = () => {
             <Text style={style.all}>All Task</Text>
 
             <MiniCard style={style.Mbox}
-              isActive={true} />
+            />
             <MiniCard
               isActive={true} />
 
@@ -66,8 +73,10 @@ const style = StyleSheet.create({
   },
   textNameStyle: {
     fontWeight: 'bold',
-    fontSize: 30,
-    color: '#A85CA3'
+    fontSize: 50,
+    marginLeft: 15,
+    color: '#A85CA3',
+    marginTop: -19,
   },
   bodyContent1: {
     height: WINDOW_HEIGHT,
@@ -86,8 +95,8 @@ const style = StyleSheet.create({
   loceng: {
     backgroundColor: 'white',
     resizeMode: 'contain',
-    height: 40,
-    width: 40,
+    height: 50,
+    width: 50,
     borderRadius: 10,
   },
   pensil: {
@@ -112,7 +121,7 @@ const style = StyleSheet.create({
     marginBottom: 20,
   },
   all: {
-    fontSize: 40,
+    fontSize: 50,
     fontWeight: 'bold',
     marginLeft: 200,
     marginTop: -11,
