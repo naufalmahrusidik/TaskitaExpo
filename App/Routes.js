@@ -37,7 +37,7 @@ export default Router = () => {
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} options={{ headerShown: false }} />
       <Stack.Screen name="RegisterSuccessScreen" component={RegisterSuccessScreen} options={{ headerShown: false }} />
       <Stack.Screen name="RegisterErrorScreen" component={RegisterErrorScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="AddNewTaskScreen" component={AddNewTaskScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="AddNewTaskScreen" component={AddNewTaskScreen} options={{ headerShown: true, title: "Add New Task", headerTransparent: true, headerTintColor: "#d975bb"}} />
     </Stack.Navigator>
   );
 };

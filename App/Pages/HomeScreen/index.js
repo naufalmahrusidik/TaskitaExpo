@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StatusBar, styles,  StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
+import { Text, View, StatusBar, styles, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
 import { IcLonceng, IcCheckBox } from '../../assets';
 import { MiniCard } from '../../Componets'
 import { useSelector, useDispatch } from 'react-redux'
@@ -47,7 +47,7 @@ export default HomeScreen = () => {
       </View>
 
       <View style={{ padding: 15 }}>
-        <Text style={{ color: 'white' }}>{displayMonth}</Text>
+        <Text style={{ color: 'white', marginLeft: 20 }}>{displayMonth}</Text>
         <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 50, paddingRight: 50 }}>
           <MiniCard
             isActive={true}
@@ -70,7 +70,9 @@ export default HomeScreen = () => {
       <View style={style.bodyContent}>
         <ScrollView style={{ padding: 30 }}>
 
-          
+          <Text style={{ fontSize: 50, marginLeft: 100 }}>KESIT TAMVAN</Text>
+          <Text style={{ fontSize: 50, marginLeft: 125, marginTop: 100 }}>@kesit_wjr10</Text>
+          <Text style={{ fontSize: 30, marginLeft: 95, marginTop: 300 }}>Copyright - Kesit Wijanarko</Text>
 
         </ScrollView>
       </View>
@@ -88,26 +90,28 @@ const style = StyleSheet.create({
   },
   textNameStyle: {
     fontWeight: 'bold',
-    fontSize: 30,
-    color: '#A85CA3'
-
+    fontSize: 50,
+    marginLeft: 15,
+    color: '#A85CA3',
+    marginTop: -19,
   },
   textWelcome: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18,
+    marginLeft: 15,
   },
   bodyContent: {
     height: WINDOW_HEIGHT,
     backgroundColor: 'white',
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 50
+    borderTopRightRadius: 90,
+    borderTopLeftRadius: 90
   },
   loceng: {
     backgroundColor: 'white',
     resizeMode: 'contain',
-    height: 40,
-    width: 40,
+    height: 50,
+    width: 50,
     borderRadius: 10,
   },
 });  
