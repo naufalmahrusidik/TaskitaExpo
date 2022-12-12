@@ -16,7 +16,7 @@ import { TouchableOpacity, TextInput } from "react-native-gesture-handler";
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 import { PrimaryButton } from "../../Componets";
 
-export default HomeScreen = ({ navigation }) => {
+export default AddNewTaskScreen = ({ navigation }) => {
 
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");

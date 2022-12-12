@@ -5,7 +5,7 @@ import { MiniCard } from '../../Componets'
 import { useSelector } from 'react-redux'
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
-export default HomeScreen = ({ navigation }) => {
+export default TaskScreen = ({ navigation }) => {
   const nama = useSelector((state) => state.user.nama)
 
   return (
