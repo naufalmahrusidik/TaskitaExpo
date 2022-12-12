@@ -7,7 +7,7 @@ import RegisterErrorScreen from './RegisterScreen/RegisterErrorScreen'
 import ReportScreen from './ReportScreen';
 import TaskScreen from './TaskScreen';
 import SettingsScreen from './SettingsScreen';
-import AddNewTask from './AddNewTask';
+import AddNewTaskScreen from './AddNewTaskScreen';
 
 export {
     HomeScreen, 
@@ -19,5 +19,5 @@ export {
     TaskScreen,
     ReportScreen,
     SettingsScreen,
-    AddNewTask,
+    AddNewTaskScreen,
 };

@@ -19,15 +19,7 @@ export default HomeScreen = ({ navigation }) => {
         <View>
           <Text style={style.textNameStyle}>{nama}</Text>
         </View>
-        <TouchableOpacity
-          onPress={() =>
-            Alert.alert("Tidak ada Notifikasi", [
-              {
-                text: "ok",
-                onPress: () => console.log("ok ditekan"),
-              },
-            ])
-          }>
+        <TouchableOpacity>
           <Image source={IcLonceng} style={style.loceng} />
         </TouchableOpacity>
       </View>
@@ -35,7 +27,8 @@ export default HomeScreen = ({ navigation }) => {
       <View style={style.bodyContent1}>
         <View style={{ flexDirection: 'row' }}>
 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("AddNewTaskScreen")}>
             <Image source={IcPensil} style={style.pensil} />
             <Text style={style.Add}>Add New</Text>
           </TouchableOpacity>

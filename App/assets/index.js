@@ -21,6 +21,9 @@ import IcLonceng from './img/lonceng.png';
 import IcCheckBox from './img/checkbox.png';
 
 import IcPensil from './img/pensil.png';
+import IcJam from './img/Ic-time.png';
+import IcKalender from './img/Ic-date.png';
+import IcTask from './img/Ic-task.png';
 
 import IcLoading from './img/loading.gif';
 
@@ -46,5 +49,8 @@ export {
     IcLoading,
     IcLonceng,
     IcCheckBox,
-    IcPensil
+    IcPensil,
+    IcJam,
+    IcKalender,
+    IcTask,
     };
