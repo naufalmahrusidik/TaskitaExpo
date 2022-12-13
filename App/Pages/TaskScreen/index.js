@@ -4,6 +4,7 @@ import { IcLonceng, IcPensil } from '../../assets';
 import { MiniCard } from '../../Componets'
 import { useSelector } from 'react-redux'
 const WINDOW_HEIGHT = Dimensions.get('window').height;
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export default TaskScreen = ({ navigation }) => {
   const nama = useSelector((state) => state.user.nama)
@@ -19,21 +20,36 @@ export default TaskScreen = ({ navigation }) => {
         <View>
           <Text style={style.textNameStyle}>{nama}</Text>
         </View>
-        <TouchableOpacity>
-          <Image source={IcLonceng} style={style.loceng} />
+        <TouchableOpacity
+          onPress={() =>
+            Alert.alert("Mohon maaf", "Untuk saat ini tidak ada Notifikasi masuk", [
+              {
+                text: "ok",
+                onPress: () => console.log("ok ditekan"),
+              },
+            ])
+          }>
+          <Image source={IcLonceng} style={style.lonceng} />
         </TouchableOpacity>
       </View>
 
       <View style={style.bodyContent1}>
         <View style={{ flexDirection: 'row' }}>
-
           <TouchableOpacity
             onPress={() => navigation.navigate("AddNewTaskScreen")}>
             <Image source={IcPensil} style={style.pensil} />
             <Text style={style.Add}>Add New</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              Alert.alert("Mohon maaf", "Fitur ini masih dalam pengembangan", [
+                {
+                  text: "ok",
+                  onPress: () => console.log("ok ditekan"),
+                },
+              ])
+            }>
             <Text style={style.Filter}>Filter Task</Text>
           </TouchableOpacity>
         </View>
@@ -41,12 +57,6 @@ export default TaskScreen = ({ navigation }) => {
         <View style={style.bodyContent}>
           <ScrollView style={{ padding: 30 }}>
             <Text style={style.all}>All Task</Text>
-
-            <MiniCard style={style.Mbox}
-            />
-            <MiniCard
-              isActive={true} />
-
           </ScrollView>
         </View>
       </View>
@@ -59,64 +69,65 @@ export default TaskScreen = ({ navigation }) => {
 
 const style = StyleSheet.create({
   containerTop: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
-    marginTop: 20
+    marginTop: 0
   },
   textNameStyle: {
     fontWeight: 'bold',
-    fontSize: 50,
-    marginLeft: 15,
+    fontSize: 30,
+    marginLeft: 100,
     color: '#A85CA3',
-    marginTop: -19,
+    marginTop: 19,
   },
   bodyContent1: {
     height: WINDOW_HEIGHT,
-    marginTop: 20,
-    paddingTop: 90,
+    marginTop: 70,
+    paddingTop: 40,
     backgroundColor: '#d975bb',
-    borderTopRightRadius: 90,
-    borderTopLeftRadius: 90
+    borderTopRightRadius: 60,
+    borderTopLeftRadius: 60
   },
   bodyContent: {
     height: WINDOW_HEIGHT,
     backgroundColor: 'white',
-    borderTopRightRadius: 90,
-    borderTopLeftRadius: 90
+    borderTopRightRadius: 60,
+    borderTopLeftRadius: 60
   },
-  loceng: {
+  lonceng: {
     backgroundColor: 'white',
     resizeMode: 'contain',
-    height: 50,
-    width: 50,
+    height: 40,
+    width: 40,
     borderRadius: 10,
   },
   pensil: {
-    width: 25,
-    height: 25,
-    marginTop: -50,
-    marginLeft: 55,
+    width: 20,
+    height: 20,
+    marginTop: -18,
+    marginLeft: 40,
   },
   Add: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold',
-    marginTop: -25,
-    marginLeft: 90
+    marginTop: -20,
+    marginLeft: 65
   },
   Filter: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold',
-    marginTop: -50,
-    marginLeft: 280,
-    marginBottom: 20,
+    marginTop: -18,
+    marginLeft: 120,
+    paddingBottom: 20
   },
   all: {
-    fontSize: 50,
+    fontSize: 35,
     fontWeight: 'bold',
-    marginLeft: 200,
+    marginLeft: 90,
     marginTop: -11,
     marginBottom: 20,
   }

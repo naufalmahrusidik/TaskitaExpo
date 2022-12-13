@@ -56,7 +56,7 @@ export default AddNewTaskScreen = ({ navigation }) => {
                     <View>
                         <Text style={style.text}>Sumary Task</Text>
                         <TextInput
-                            numberOfLines={9}
+                            numberOfLines={4}
                             maxLength={200}
                             multiline
                             placeholder={"Type Sumary Task"}
@@ -133,10 +133,18 @@ export default AddNewTaskScreen = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
+    bodyContent: {
+        marginTop: 80,
+        height: 150,
+        height: WINDOW_HEIGHT,
+        backgroundColor: "white",
+        borderTopRightRadius: 60,
+        borderTopLeftRadius: 60,
+    },
     inputText: {
         borderColor: "#261863",
         backgroundColor: "#f7f5ff",
-        fontSize: 16,
+        fontSize: 15,
         paddingTop: 6,
         paddingBottom: 6,
         paddingRight: 6,
@@ -149,11 +157,11 @@ const style = StyleSheet.create({
         borderColor: "#261863",
         backgroundColor: "#f7f5ff",
         fontSize: 16,
-        paddingTop: 15,
-        paddingRight: 342,
+        paddingTop: 8,
+        paddingRight: 100,
         paddingLeft: 15,
-        paddingBottom: 15,
-        marginRight: 15,
+        paddingBottom: 8,
+        marginRight: 25,
         marginBottom: 0,
         borderWidth: 1,
         borderRadius: 10,
@@ -163,10 +171,10 @@ const style = StyleSheet.create({
         borderColor: "#261863",
         backgroundColor: "#f7f5ff",
         fontSize: 16,
-        paddingTop: 15,
-        paddingRight: 387,
+        paddingTop: 8,
+        paddingRight: 157,
         paddingLeft: 15,
-        paddingBottom: 15,
+        paddingBottom: 8,
         marginRight: 15,
         marginBottom: 0,
         borderWidth: 1,
@@ -189,8 +197,8 @@ const style = StyleSheet.create({
         borderRadius: 7,
         marginLeft: 10,
         marginRight: 10,
-        width: 35,
-        height: 39,
+        width: 25,
+        height: 25,
         flex: 1,
     },
     iconbg1: {
@@ -204,8 +212,8 @@ const style = StyleSheet.create({
         borderRadius: 7,
         marginLeft: 10,
         marginRight: 10,
-        width: 35,
-        height: 39,
+        width: 25,
+        height: 25,
         flex: 1,
     },
     iconbg: {
@@ -215,11 +223,11 @@ const style = StyleSheet.create({
         backgroundColor: '#131B63'
     },
     text: {
-        marginTop: 30,
+        marginTop: 15,
         marginLeft: 9,
         color: "black",
         fontWeight: "bold",
-        fontSize: 25,
+        fontSize: 20,
     },
     filter: {
         marginTop: 10,
@@ -231,14 +239,6 @@ const style = StyleSheet.create({
         color: "white",
         fontWeight: "bold",
         fontSize: 18,
-    },
-    bodyContent: {
-        marginTop: 100,
-        height: 150,
-        height: WINDOW_HEIGHT,
-        backgroundColor: "white",
-        borderTopRightRadius: 90,
-        borderTopLeftRadius: 90,
     },
     btnSubmitStyle: {
         backgroundColor: "#01af3c",

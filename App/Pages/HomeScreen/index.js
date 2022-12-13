@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StatusBar, styles, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
+import { Text, View, StatusBar, styles, Alert, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView } from 'react-native';
 import { IcLonceng, IcCheckBox } from '../../assets';
 import { MiniCard } from '../../Componets'
 import { useSelector, useDispatch } from 'react-redux'
@@ -38,17 +38,24 @@ export default HomeScreen = () => {
       <View style={style.containerTop}>
         <View >
           <Text style={style.textNameStyle}>{nama}</Text>
-          <Text style={style.textWelcome}>{email}</Text>
+          <Text style={style.textEmail}>{email}</Text>
         </View>
-        <View>
-          <Image
-            source={IcLonceng} style={style.loceng} />
-        </View>
+        <TouchableOpacity
+          onPress={() =>
+            Alert.alert("Mohon maaf", "Untuk saat ini tidak ada Notifikasi masuk", [
+              {
+                text: "ok",
+                onPress: () => console.log("ok ditekan"),
+              },
+            ])
+          }>
+          <Image source={IcLonceng} style={style.lonceng} />
+        </TouchableOpacity>
       </View>
 
-      <View style={{ padding: 15 }}>
-        <Text style={{ color: 'white', marginLeft: 20 }}>{displayMonth}</Text>
-        <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 50, paddingRight: 50 }}>
+      <View style={{ padding: 20 }}>
+        <Text style={{ color: 'white', marginLeft: 5, marginTop: 20 }}>{displayMonth}</Text>
+        <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10 }}>
           <MiniCard
             isActive={true}
             day={hariSekarang}
@@ -67,13 +74,12 @@ export default HomeScreen = () => {
 
         </View>
       </View>
+
       <View style={style.bodyContent}>
         <ScrollView style={{ padding: 30 }}>
-
-          <Text style={{ fontSize: 50, marginLeft: 100 }}>KESIT TAMVAN</Text>
-          <Text style={{ fontSize: 50, marginLeft: 125, marginTop: 100 }}>@kesit_wjr10</Text>
-          <Text style={{ fontSize: 30, marginLeft: 95, marginTop: 300 }}>Copyright - Kesit Wijanarko</Text>
-
+          <Text style={{ fontSize: 20, marginLeft: 60 }}>KESIT WIAJANARKO</Text>
+          <Text style={{ fontSize: 20, marginLeft: 90, marginTop: 100 }}>@kesit_wjr10</Text>
+          <Text style={{ fontSize: 20, marginLeft: 30, marginTop: 130 }}>Copyright - Kesit Wijanarko</Text>
         </ScrollView>
       </View>
 
@@ -83,35 +89,36 @@ export default HomeScreen = () => {
 
 const style = StyleSheet.create({
   containerTop: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
-    marginTop: 20
+    marginTop: 0
   },
   textNameStyle: {
     fontWeight: 'bold',
-    fontSize: 50,
-    marginLeft: 15,
+    fontSize: 30,
+    marginLeft: 100,
     color: '#A85CA3',
-    marginTop: -19,
+    marginTop: 19,
   },
-  textWelcome: {
+  textEmail: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 18,
-    marginLeft: 15,
+    fontSize: 15,
+    marginLeft: 120,
   },
   bodyContent: {
     height: WINDOW_HEIGHT,
     backgroundColor: 'white',
-    borderTopRightRadius: 90,
-    borderTopLeftRadius: 90
+    borderTopRightRadius: 60,
+    borderTopLeftRadius: 60
   },
-  loceng: {
+  lonceng: {
     backgroundColor: 'white',
     resizeMode: 'contain',
-    height: 50,
-    width: 50,
+    height: 40,
+    width: 40,
     borderRadius: 10,
   },
 });  
