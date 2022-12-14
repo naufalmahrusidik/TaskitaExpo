@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import {
     StyleSheet,
     View,
@@ -16,6 +17,7 @@ import { IcKalender, IcJam } from "../../assets";
 import { TouchableOpacity, TextInput } from "react-native-gesture-handler";
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 import { PrimaryButton } from "../../Componets";
+import { useSelector, useDispatch } from 'react-redux'
 
 export default AddNewTaskScreen = ({ navigation }) => {
 
@@ -42,6 +44,48 @@ export default AddNewTaskScreen = ({ navigation }) => {
         setShow(true);
         setMode(currentMode);
     }
+
+    const [summary, onChangeSummary] = React.useState(null);
+    const [activedate, onChangeActiveDate] = React.useState(null);
+    const [timestart, onChangeTimeStart] = React.useState(null);
+    const [timeend, onChangeTimeEnd] = React.useState(null);
+    const [message, onSetMessage] = React.useState(null);
+    const [iserror, onError] = React.useState(null);
+    const [isLoading, onChangeLoading] = React.useState(false);
+    const id = useSelector((state) => state.user.id)
+  
+    const onAddNew=()=>{
+      onChangeLoading(true)
+      axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/insertOne',{
+          "dataSource": "Cluster0",
+          "database": "app_taskita",
+          "collection": "task",
+          "document": { 
+            "userId": id,
+            "task": summary,
+            "active_date": activedate,
+            "time_start": timestart,
+            "time_end": timeend,
+            "progress": "Open"
+          }
+      },{
+          headers:{
+              'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
+          }
+      }).then(res=>{
+          navigation.replace('MainScreen',{screen:'TaskScreen'})
+          onSetMessage('Data Berhasil Ditambahkan')
+          alert('Data Berhasil Ditambahkan')
+      }).catch(err=>{
+        console.log(err)
+        onError(true)
+        onSetMessage('Data Gagal Ditambahkan')
+        alert([message])
+      }).finally(()=>{
+        onChangeLoading(false)
+      })
+  
+      }
 
     return (
         <SafeAreaView style={{ backgroundColor: "#131B63", flex: 1 }}>
@@ -121,9 +165,10 @@ export default AddNewTaskScreen = ({ navigation }) => {
                         />)}
 
                     <PrimaryButton
-                        onPress={() => navigation.navigate("MainScreen")}
                         customeStyle={style.btnSubmitStyle}
+                        onPress={()=>onAddNew()}
                         title="Submit Data"
+                         isLoading={isLoading}
                     />
 
                 </ScrollView>

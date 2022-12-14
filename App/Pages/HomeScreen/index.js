@@ -79,7 +79,7 @@ export default HomeScreen = () => {
         <ScrollView style={{ padding: 30 }}>
           <Text style={{ fontSize: 20, marginLeft: 60 }}>KESIT WIAJANARKO</Text>
           <Text style={{ fontSize: 20, marginLeft: 90, marginTop: 100 }}>@kesit_wjr10</Text>
-          <Text style={{ fontSize: 20, marginLeft: 30, marginTop: 130 }}>Copyright - Kesit Wijanarko</Text>
+          <Text style={{ fontSize: 20, marginLeft: 30, marginTop: 110 }}>Copyright - Kesit Wijanarko</Text>
         </ScrollView>
       </View>
 
@@ -89,24 +89,22 @@ export default HomeScreen = () => {
 
 const style = StyleSheet.create({
   containerTop: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
     marginTop: 0
   },
   textNameStyle: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    marginLeft: 100,
-    color: '#A85CA3',
-    marginTop: 19,
+    fontWeight:'bold',
+    fontSize:25,
+    color:'#A85CA3',
+    marginLeft: 10,
   },
   textEmail: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 15,
-    marginLeft: 120,
+    marginLeft: 10,
   },
   bodyContent: {
     height: WINDOW_HEIGHT,
@@ -120,5 +118,6 @@ const style = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 10,
+    marginTop: 5
   },
 });  

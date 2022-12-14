@@ -1,13 +1,27 @@
 import * as React from 'react';
+import axios from 'axios';
 import { Text, Alert, View, StatusBar, StyleSheet, Image, TouchableOpacity, SafeAreaView, Dimensions, ScrollView, FlatList } from 'react-native';
-import { IcLonceng, IcPensil } from '../../assets';
-import { MiniCard } from '../../Componets'
-import { useSelector } from 'react-redux'
+import { IcLonceng, IcPensil, IcCheckBox } from '../../assets';
+import { useSelector, useDispatch } from "react-redux";
 const WINDOW_HEIGHT = Dimensions.get('window').height;
-const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export default TaskScreen = ({ navigation }) => {
   const nama = useSelector((state) => state.user.nama)
+  const activedate = useSelector((state) => state.activedate)
+
+  axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/findOne', {
+    "dataSource": "Cluster0",
+    "database": "app_taskita",
+    "collection": "task",
+    "filter": {
+      "userId": id,
+      "active_date": activedate
+    }
+  }, {
+    headers: {
+      'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
+    }
+  })
 
   return (
     <SafeAreaView style={{ backgroundColor: '#131B63', flex: 1 }}>
@@ -57,6 +71,25 @@ export default TaskScreen = ({ navigation }) => {
         <View style={style.bodyContent}>
           <ScrollView style={{ padding: 30 }}>
             <Text style={style.all}>All Task</Text>
+            <View style={style.itemall}>
+              <View style={style.itemdate}>
+                <Image source={IcCheckBox} style={style.gambar1}></Image>
+                <Text>10 April 22</Text>
+                <Text style={{ marginLeft: 15, color: '#777878' }}>12.00</Text>
+              </View>
+              <View style={style.item}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Image source={IcLonceng} style={style.gambar2} />
+                  <View style={{ flexDirection: 'column' }}>
+                    <Text style={style.teksitem}>MEETING WITH CEO</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 8 }}>
+                      <View style={{ backgroundColor: 'red', width: 60, height: 5 }}></View>
+                      <View style={{ backgroundColor: '#e4e3ea', width: 30, height: 5 }}></View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
           </ScrollView>
         </View>
       </View>
@@ -69,22 +102,21 @@ export default TaskScreen = ({ navigation }) => {
 
 const style = StyleSheet.create({
   containerTop: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
-    marginTop: 0
+    marginTop: 0,
   },
   textNameStyle: {
     fontWeight: 'bold',
-    fontSize: 30,
-    marginLeft: 100,
+    fontSize: 25,
+    marginLeft: 15,
     color: '#A85CA3',
-    marginTop: 19,
+    marginTop: 3,
   },
   bodyContent1: {
     height: WINDOW_HEIGHT,
-    marginTop: 70,
+    marginTop: 20,
     paddingTop: 40,
     backgroundColor: '#d975bb',
     borderTopRightRadius: 60,
@@ -102,6 +134,7 @@ const style = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 10,
+    marginTop: 5
   },
   pensil: {
     width: 20,
@@ -130,5 +163,36 @@ const style = StyleSheet.create({
     marginLeft: 90,
     marginTop: -11,
     marginBottom: 20,
+  },
+  itemall: {
+    flexDirection: "row",
+    marginLeft: 15,
+    marginTop: 10
+  },
+  itemdate: {
+    height: 100,
+    width: 80
+  },
+  gambar1: {
+    width: 30,
+    height: 30,
+    marginLeft: 20
+  },
+  item: {
+    height: 80,
+    width: 230,
+    backgroundColor: '#F5F5F5',
+    borderRadius: 20,
+  },
+  gambar2: {
+    height: 60,
+    width: 60,
+    marginTop: 10,
+    marginLeft: 10
+  },
+  teksitem: {
+    color: 'black',
+    marginTop: 20,
+    marginLeft: 10
   }
 });  
