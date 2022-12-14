@@ -8,21 +8,6 @@ const WINDOW_HEIGHT = Dimensions.get('window').height;
 export default TaskScreen = ({ navigation }) => {
   const nama = useSelector((state) => state.user.nama)
   const activedate = useSelector((state) => state.activedate)
-
-  axios.post('https://data.mongodb-api.com/app/data-yvczw/endpoint/data/v1/action/findOne', {
-    "dataSource": "Cluster0",
-    "database": "app_taskita",
-    "collection": "task",
-    "filter": {
-      "userId": id,
-      "active_date": activedate
-    }
-  }, {
-    headers: {
-      'api-key': 'zYwAQaYVJ2hdF6WVlhy4gFM7i6IOGAcAJ5lips8IYEjIkXjoksjPpuTBZvGjt4uC'
-    }
-  })
-
   return (
     <SafeAreaView style={{ backgroundColor: '#131B63', flex: 1 }}>
       <StatusBar
