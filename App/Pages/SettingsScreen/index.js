@@ -42,7 +42,6 @@ export default SettingsScreen = ({navigation}) => {
     navigation.navigate('LoginScreen')
   }
 
-
   return (
     <View style={{flex: 1}}>
       <CardView title="Id" value={id}/>

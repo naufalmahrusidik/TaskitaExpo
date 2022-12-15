@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     footherText: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 50
+        marginTop: 30
     },
     BodyText3: {
         fontFamily:'Roboto-Light',
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     footherText2: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 20
+        marginTop: 10
     },
     BodyText4: {
         fontFamily:'Roboto-Light',

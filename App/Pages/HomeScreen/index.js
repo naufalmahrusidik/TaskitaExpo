@@ -37,8 +37,29 @@ export default HomeScreen = () => {
 
       <View style={style.containerTop}>
         <View >
-          <Text style={style.textNameStyle}>{nama}</Text>
-          <Text style={style.textEmail}>{email}</Text>
+          <TouchableOpacity
+            onPress={() =>
+              Alert.alert("Info", "Ini adalah nama akun Anda", [
+                {
+                  text: "ok",
+                  onPress: () => console.log("ok ditekan"),
+                },
+              ])
+            }>
+            <Text style={style.textNameStyle}>{nama}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() =>
+              Alert.alert("Info", "Ini adalah email akun Anda", [
+                {
+                  text: "ok",
+                  onPress: () => console.log("ok ditekan"),
+                },
+              ])
+            }>
+            <Text style={style.textEmail}>{email}</Text>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity
           onPress={() =>
@@ -77,9 +98,7 @@ export default HomeScreen = () => {
 
       <View style={style.bodyContent}>
         <ScrollView style={{ padding: 30 }}>
-          <Text style={{ fontSize: 20, marginLeft: 60 }}>KESIT WIAJANARKO</Text>
-          <Text style={{ fontSize: 20, marginLeft: 90, marginTop: 100 }}>@kesit_wjr10</Text>
-          <Text style={{ fontSize: 20, marginLeft: 30, marginTop: 110 }}>Copyright - Kesit Wijanarko</Text>
+          <Text style={{ fontSize: 20, marginLeft: 60 }}>Naufal Mahrus Sidik</Text>
         </ScrollView>
       </View>
 
@@ -95,9 +114,9 @@ const style = StyleSheet.create({
     marginTop: 0
   },
   textNameStyle: {
-    fontWeight:'bold',
-    fontSize:25,
-    color:'#A85CA3',
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: '#A85CA3',
     marginLeft: 10,
   },
   textEmail: {

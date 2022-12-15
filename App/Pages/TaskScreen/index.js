@@ -8,6 +8,7 @@ const WINDOW_HEIGHT = Dimensions.get('window').height;
 export default TaskScreen = ({ navigation }) => {
   const nama = useSelector((state) => state.user.nama)
   const activedate = useSelector((state) => state.activedate)
+
   return (
     <SafeAreaView style={{ backgroundColor: '#131B63', flex: 1 }}>
       <StatusBar
@@ -17,7 +18,17 @@ export default TaskScreen = ({ navigation }) => {
 
       <View style={style.containerTop}>
         <View>
-          <Text style={style.textNameStyle}>{nama}</Text>
+          <TouchableOpacity
+            onPress={() =>
+              Alert.alert("Info", "Ini adalah nama akun Anda", [
+                {
+                  text: "ok",
+                  onPress: () => console.log("ok ditekan"),
+                },
+              ])
+            }>
+            <Text style={style.textNameStyle}>{nama}</Text>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity
           onPress={() =>
@@ -54,28 +65,77 @@ export default TaskScreen = ({ navigation }) => {
         </View>
 
         <View style={style.bodyContent}>
+          <Text style={style.all}>All Task</Text>
+
           <ScrollView style={{ padding: 30 }}>
-            <Text style={style.all}>All Task</Text>
-            <View style={style.itemall}>
-              <View style={style.itemdate}>
-                <Image source={IcCheckBox} style={style.gambar1}></Image>
-                <Text>10 April 22</Text>
-                <Text style={{ marginLeft: 15, color: '#777878' }}>12.00</Text>
-              </View>
-              <View style={style.item}>
-                <View style={{ flexDirection: 'row' }}>
-                  <Image source={IcLonceng} style={style.gambar2} />
-                  <View style={{ flexDirection: 'column' }}>
-                    <Text style={style.teksitem}>MEETING WITH CEO</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 8 }}>
-                      <View style={{ backgroundColor: 'red', width: 60, height: 5 }}></View>
-                      <View style={{ backgroundColor: '#e4e3ea', width: 30, height: 5 }}></View>
+            <TouchableOpacity
+              onPress={() =>
+                Alert.alert("Mohon maaf", "Untuk saat ini masih dalam pengembangan", [
+                  {
+                    text: "ok",
+                    onPress: () => console.log("ok ditekan"),
+                  },
+                ])
+              }>
+              <View style={style.itemall}>
+                <View style={style.itemdate}>
+                  <Image source={IcCheckBox} style={style.gambar1}></Image>
+                  <Text style={{ fontSize: 13, marginLeft: -15 }}>10 April 22</Text>
+                  <Text style={{ marginLeft: -3, color: '#777878' }}>09.00</Text>
+                </View>
+                <View style={style.item}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <View style={{ backgroundColor: '#DC3535', borderRadius: 8, width: 50, marginLeft: 15, marginBottom: -16, marginTop: 11 }}>
+                      <Text style={{ fontSize: 40, color: 'white', marginLeft: 7 }}>M</Text>
+                    </View>
+                    <View style={{ flexDirection: 'column' }}>
+                      <Text style={style.teksitem}>MEETING WITH CEO</Text>
+                      <View style={{ flexDirection: 'row', marginTop: 8, marginLeft: 10 }}>
+                        <View style={{ backgroundColor: 'red', width: 60, height: 5 }}></View>
+                        <View style={{ backgroundColor: '#e4e3ea', width: 75, height: 5 }}></View>
+                      </View>
                     </View>
                   </View>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
+
+
+            <TouchableOpacity
+              onPress={() =>
+                Alert.alert("Mohon maaf", "Untuk saat ini masih dalam pengembangan", [
+                  {
+                    text: "ok",
+                    onPress: () => console.log("ok ditekan"),
+                  },
+                ])
+              }>
+              <View style={style.itemall}>
+                <View style={style.itemdate}>
+                  <Image source={IcCheckBox} style={style.gambar1}></Image>
+                  <Text style={{ fontSize: 13, marginLeft: -15 }}>30 April 22</Text>
+                  <Text style={{ marginLeft: -3, color: '#777878' }}>15.00</Text>
+                </View>
+                <View style={style.item}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <View style={{ backgroundColor: '#DC3535', borderRadius: 8, width: 50, marginLeft: 15, marginBottom: -16, marginTop: 11 }}>
+                      <Text style={{ fontSize: 40, color: 'white', marginLeft: 7 }}>M</Text>
+                    </View>
+                    <View style={{ flexDirection: 'column' }}>
+                      <Text style={style.teksitem}>MEETING WITH Naufal</Text>
+                      <View style={{ flexDirection: 'row', marginTop: 8, marginLeft: 10 }}>
+                        <View style={{ backgroundColor: 'red', width: 60, height: 5 }}></View>
+                        <View style={{ backgroundColor: '#e4e3ea', width: 75, height: 5 }}></View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+           
           </ScrollView>
+
         </View>
       </View>
 
@@ -94,7 +154,7 @@ const style = StyleSheet.create({
   },
   textNameStyle: {
     fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: 30,
     marginLeft: 15,
     color: '#A85CA3',
     marginTop: 3,
@@ -126,6 +186,7 @@ const style = StyleSheet.create({
     height: 20,
     marginTop: -18,
     marginLeft: 40,
+    color: 'white'
   },
   Add: {
     color: 'white',
@@ -145,29 +206,30 @@ const style = StyleSheet.create({
   all: {
     fontSize: 35,
     fontWeight: 'bold',
-    marginLeft: 90,
-    marginTop: -11,
-    marginBottom: 20,
+    marginLeft: 120,
+    marginTop: 20,
+    marginBottom: -10,
   },
   itemall: {
     flexDirection: "row",
     marginLeft: 15,
-    marginTop: 10
+    marginTop: 14
   },
   itemdate: {
-    height: 100,
-    width: 80
+    height: 80,
+    width: 60,
   },
   gambar1: {
-    width: 30,
-    height: 30,
-    marginLeft: 20
+    width: 20,
+    height: 20,
+    marginLeft: 6
   },
   item: {
     height: 80,
     width: 230,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#EFF5F5',
     borderRadius: 20,
+    marginTop: -14
   },
   gambar2: {
     height: 60,
@@ -178,6 +240,7 @@ const style = StyleSheet.create({
   teksitem: {
     color: 'black',
     marginTop: 20,
-    marginLeft: 10
+    marginLeft: 10,
+    fontSize: 14
   }
 });  
